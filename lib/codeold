@@ -1,0 +1,10 @@
+
+
+  initState() async {
+    bloc.initOneSignal();
+    super.initState();
+    var prefs = await SharedPreferences.getInstance();
+    String nome = prefs.getString('nome');
+    print(nome);
+    runApp(MaterialApp(home: nome == null ? HomePage() : HomeSimp3n()));
+  }
